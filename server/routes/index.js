@@ -11,9 +11,12 @@ router.get('/', function(req, res, next) {
 
 router.post('/GetUser', userlist.UserList);
 router.post('/InsertUser', userlist.InsertUser);
-router.post('/DeleteUser', userlist.DeleteUser);
-router.post('/SearchUser', userlist.SearchUser);
+// router.post('/InsertBlog', upload.single('selectedFile'), userlist.InsertBlog);
+router.post('/DeleteBlog', userlist.DeleteBlog);
+router.post('/GetBlog', userlist.BlogUser);
 router.post('/GetUserById', userlist.GetUserById);
 router.post('/EditUser', userlist.EditUser);
+router.post('/SignInData', userlist.LoginUser);
+
 
 module.exports = router;

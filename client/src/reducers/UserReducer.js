@@ -1,7 +1,9 @@
-﻿import {  USER_DATA,SEARCH_DATA } from '../actions/types';
+﻿import { USER_DATA, LOGIN_DATA, LOGIN_STATUS, BLOG_DATA } from '../actions/types';
 
 const initialState = {
-    userdata: []
+    userdata: [],
+    logindata: [],
+    blogdata: []
 }
 
 export default function (state = initialState, action) {
@@ -13,12 +15,23 @@ export default function (state = initialState, action) {
                 ...state,
                 userdata: action.payload
             };
-            case SEARCH_DATA:
-                return {
-                    ...state,
-                    userdata: action.payload
-                };
+
+        case LOGIN_DATA:
+            return {
+                ...state,
+                logindata: action.payload, login: true
+            };
+        case LOGIN_STATUS:
+            return {
+                ...state,
+                logindata: action.payload, login: false
+            };
+        case BLOG_DATA:
+            return {
+                ...state,
+                blogdata: action.payload
+            };
         default:
-            return state;
+            return { ...state, login: false };
     }
 }
